@@ -1,0 +1,15 @@
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+$jc-primary: mat.define-palette(mat.$green-palette, 400);
+$jc-accent: mat.define-palette(mat.$light-blue-palette, 200);
+
+$jc-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $jc-primary,
+      accent: $jc-accent,
+    ),
+  )
+);

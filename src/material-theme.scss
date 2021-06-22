@@ -1,0 +1,16 @@
+@use '~@angular/material' as mat;
+@import 'theme';
+
+@include mat.core-theme($jc-theme);
+
+// Components
+@include mat.list-theme($jc-theme);
+@include mat.form-field-theme($jc-theme);
+@include mat.input-theme($jc-theme);
+@include mat.button-theme($jc-theme);
+@include mat.icon-theme($jc-theme);
+
+.mat-raised-button {
+  border-radius: 16px !important;
+  text-transform: uppercase;
+}

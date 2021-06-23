@@ -9,6 +9,8 @@
 @include mat.input-theme($jc-theme);
 @include mat.button-theme($jc-theme);
 @include mat.icon-theme($jc-theme);
+@include mat.bottom-sheet-theme($jc-theme);
+@include mat.snack-bar-theme($jc-theme);
 
 .mat-raised-button {
   border-radius: 16px !important;

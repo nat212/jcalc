@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { filter } from 'rxjs/operators';
+import { PwaService } from './pwa.service';
+import { UpdateService } from './update.service';
 
 @Component({
   selector: 'jc-root',
@@ -15,7 +17,7 @@ export class AppComponent implements OnInit {
   public krisLeft?: number;
   public totalContr?: number;
 
-  constructor(private readonly formBuilder: FormBuilder) {}
+  constructor(private readonly formBuilder: FormBuilder, private readonly pwa: PwaService, private readonly update: UpdateService) {}
 
   private loadNum(key: string): number | null {
     const val = localStorage.getItem(key);
@@ -42,6 +44,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.update.subscribeForUpdates();
+    this.pwa.checkInstall();
     const val = Validators.compose([Validators.required, Validators.min(0)]);
     this.form = this.formBuilder.group({
       needs: [null, val],
